@@ -42,8 +42,8 @@ async def read_item(item_id: int, limit: int, published: Optional[bool] = None):
     return {"item_id": item_id, "limit": limit, "published": published}
 
 
-@app.post("/uploadxlsx/")
-async def uploadxlsx(in_file: UploadFile):
+@app.post("/uploadxlsx/{type}")
+async def uploadxlsx(in_file: UploadFile, type):
     TITLE = in_file.filename
     NOW = datetime.now()
     date_now = str(NOW).replace(" ", "_")
