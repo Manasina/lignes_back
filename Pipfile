@@ -5,14 +5,15 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
-pyexcel-xlsx = "*"
 cx-oracle = "*"
 requests = "*"
 uvicorn = "*"
 python-multipart = "*"
 aiofiles = "*"
-pyexcel = "*"
 datetime = "*"
+pandas = "*"
+pyexcel = "*"
+pyexcel-xlsx = "*"
 
 [dev-packages]
 
