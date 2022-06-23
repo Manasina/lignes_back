@@ -8,6 +8,7 @@ from typing import Optional
 import uvicorn
 from tasks import ReadAndWriteSql
 import warnings
+import requests
 
 
 warnings.simplefilter("ignore")
@@ -34,6 +35,14 @@ async def read_item(item_id: int, limit: int, published: Optional[bool] = None):
     return {"item_id": item_id, "limit": limit, "published": published}
 
 
+@app.get("/listes")
+async def get_listes(pagination: int = 1):
+    data = requests.get(
+        f"https://api.disneyapi.dev/characters?page={pagination}")
+    response = data.json()
+    return response["data"]
+
+
 @app.post("/uploadxlsx/{type}")
 async def uploadxlsx(in_file: UploadFile, type):
     new_file = f"files/{str(datetime.now()).replace(' ', '_')}_{in_file.filename}"
@@ -46,14 +55,11 @@ async def uploadxlsx(in_file: UploadFile, type):
     return {"Result": new_file}
 
 
-@app.get("/listes")
-async def get_listes():
-    return
-
-
 @app.get("/listes/{download_id}")
-async def get_listes():
-    return
+async def get_listes(download_id):
+    data = requests.get(f"https://api.disneyapi.dev/characters/{download_id}")
+    response = data.json()
+    return response
 
 
 if __name__ == "__main__":

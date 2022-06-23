@@ -1,4 +1,4 @@
 import requests
 data = requests.get(
-    "http://universities.hipolabs.com/search?country=madagascar")
+    "https://api.disneyapi.dev/characters?page=2")
 print(data.json())

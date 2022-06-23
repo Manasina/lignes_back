@@ -28,4 +28,4 @@ def ReadAndWriteSql(file_name):
         print((f"""
          INSERT INTO Customers ({', '.join(keys)})
  VALUES ({', '.join(value) });"""))
-        return True
+    return True
