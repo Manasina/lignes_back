@@ -29,3 +29,12 @@ def ReadAndWriteSql(file_name):
          INSERT INTO Customers ({', '.join(keys)})
  VALUES ({', '.join(value) });"""))
     return True
+
+
+def ValueKeyToSql(keys, values):
+    print(f"""
+         INSERT INTO Customers ({', '.join(keys)})
+ VALUES ({', '.join(values) });""")
+    return f"""
+         INSERT INTO Customers ({', '.join(keys)})
+ VALUES ({', '.join(values) });"""
