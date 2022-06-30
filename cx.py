@@ -15,12 +15,18 @@ cursor = connection.cursor()
 
 # Data for binding
 manager_id = 145
-first_name = "Peter"
 
 # Execute the query
-sql = """SELECT * FROM HR.employees WHERE manager_id = :mid"""
-cursor.execute(sql, mid=manager_id)
+# sql = """SELECT * FROM HR.employees WHERE manager_id = :mid"""
+# cursor.execute(sql, mid=manager_id)
 
 # Loop over the result set
-for row in cursor:
-    print(row)
+# for row in cursor:
+#     print(row)
+
+
+# Insert
+# sql = """SELECT * FROM HR.employees WHERE manager_id = :mid"""
+sql = "INSERT INTO HR.COUNTRIES (COUNTRY_ID, COUNTRY_NAME, REGION_ID) VALUES ('MG','MADAGASCAR', 2)"
+cursor.execute(sql)
+connection.commit()
