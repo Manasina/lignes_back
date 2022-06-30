@@ -26,7 +26,6 @@ manager_id = 145
 
 
 # Insert
-# sql = """SELECT * FROM HR.employees WHERE manager_id = :mid"""
 sql = "INSERT INTO HR.COUNTRIES (COUNTRY_ID, COUNTRY_NAME, REGION_ID) VALUES ('MG','MADAGASCAR', 2)"
 cursor.execute(sql)
 connection.commit()
